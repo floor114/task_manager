@@ -17,6 +17,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'hamlit'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'font-awesome-rails'
 
 
 #############################
@@ -34,6 +35,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
+  gem 'awesome_print'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
