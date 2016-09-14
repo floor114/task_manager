@@ -7,20 +7,30 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 #############################
 gem 'pg', '~> 0.18'
 
-
 #############################
-##  Server gems
-#############################
-gem 'puma', '~> 3.0'
-
-#############################
-### Frontend
+### Frontend gems
 #############################
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
+gem 'hamlit'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'font-awesome-rails'
+gem 'bootstrap_form'
+
+#############################
+##  Backend gems
+#############################
+gem 'puma', '~> 3.0'
+gem 'figaro'
+
+#############################
+##  User system gems
+#############################
+gem 'devise'
+gem 'cancancan', '~> 1.10'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -32,6 +42,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
+  gem 'awesome_print'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,0 +1,12 @@
+.panel.panel-default
+  .panel-heading
+    My tasks
+    = link_to render_modal_tasks_path(target: 'new'), class: 'pull-right', data: { target: '#tasks-modal', toggle: :modal}, remote: true, method: :get do
+      %i.fa.fa-plus
+  #tasks-modal.modal.fade
+    .modal-dialog
+      .modal-content
+
+  %table#tasks-table.table
+    - @tasks.each do |task|
+      = render partial: 'tasks/task_row', locals: { task: task }

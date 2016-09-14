@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title TaskManager
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = render partial: 'layouts/header'
+    .container
+      .row
+        = render partial: 'layouts/sidebar'
+        .col-md-10.main
+          = yield
+    = render partial: 'layouts/footer'
+  -#%body
+  -#  = render partial: 'layouts/header'
+  -#  .container
+  -#    = yield
+  -#  = render partial: 'layouts/footer'
