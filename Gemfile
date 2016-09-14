@@ -26,6 +26,7 @@ gem 'bootstrap_form'
 ##  Backend gems
 #############################
 gem 'puma', '~> 3.0'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug', platform: :mri
