@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  load_and_authorize_resource except: [:create, :show, :index]
+  load_and_authorize_resource except: [:index]
   before_action :authenticate_user!
   before_action :set_task, only: [:edit, :update, :destroy, :share]
   def index
@@ -14,9 +14,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     if @task.save
       current_user.users_tasks.create(task: @task)
-      redirect_to tasks_path
-    else
-      render :new
+      respond_to :js
     end
   end
 

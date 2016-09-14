@@ -1,8 +1,8 @@
-= bootstrap_form_for(task) do |f|
+= bootstrap_form_for(task, remote: true) do |f|
   .modal-header
     %button.close{ data: { dismiss: 'modal', type: 'button' } } &times;
     %h4.modal-title New task
   .modal-body
     = f.text_field :text
   .modal-footer
-    = f.submit 'Create', class: 'btn btn-default', data: { target: '#task_modal', toggle: :modal }
+    = f.submit 'Create', class: 'btn btn-default', data: { target: '#tasks-modal', toggle: :modal }

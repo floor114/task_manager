@@ -10,10 +10,6 @@
     #navbar.colapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
-          - if can? :create, Task
-            %li
-              = link_to new_task_path do
-                %i.fa.fa-plus
           %li.dropdown
             %a.dropdown-toggle{ data: { toggle: 'dropdown' }, href: '#' }
               %i.fa.fa-cog
