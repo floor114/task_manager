@@ -1,0 +1,3 @@
+= form_for task do |f|
+  %p= f.text_field :text, placeholder: 'Text'
+  %p= f.submit 'Submit', data: { disable_with: 'Wait...' }
