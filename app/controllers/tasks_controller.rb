@@ -36,6 +36,13 @@ class TasksController < ApplicationController
   end
 
   def share
+    @task.share(params[:user_email])
+    respond_to :js
+  end
+
+  def render_modal
+    @task = params[:id].nil? ? Task.new : Task.find(params[:id])
+    @target = params[:target]
     respond_to :js
   end
 
@@ -44,7 +51,7 @@ class TasksController < ApplicationController
       params.require(:task).permit(:text)
     end
 
-  def set_task
-    @task = Task.find(params[:id])
-  end
+    def set_task
+      @task = Task.find(params[:id])
+    end
 end

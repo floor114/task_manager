@@ -1,0 +1,7 @@
+= bootstrap_form_for(task) do |f|
+  .modal-header
+    %h4.modal-title New task
+  .modal-body
+    = f.text_field :text
+  .modal-footer
+    = f.submit 'Create', class: 'btn btn-default', data: { target: '#task_modal', toggle: :modal }

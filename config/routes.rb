@@ -5,5 +5,8 @@ Rails.application.routes.draw do
     member do
       post :share
     end
+    collection do
+      get :render_modal
+    end
   end
 end
