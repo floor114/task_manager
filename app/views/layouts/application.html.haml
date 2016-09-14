@@ -8,5 +8,13 @@
   %body
     = render partial: 'layouts/header'
     .container
-      = yield
+      .row
+        = render partial: 'layouts/sidebar'
+        .col-md-10.main
+          = yield
     = render partial: 'layouts/footer'
+  -#%body
+  -#  = render partial: 'layouts/header'
+  -#  .container
+  -#    = yield
+  -#  = render partial: 'layouts/footer'

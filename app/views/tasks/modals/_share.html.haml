@@ -1,5 +1,6 @@
 = bootstrap_form_tag url: share_task_path(task), html: { remote: true, method: :post } do |f|
   .modal-header
+    %button.close{ data: { dismiss: 'modal', type: 'button' } } &times;
     %h4.modal-title Choose user
   .modal-body
     = f.select :user_email, options_from_collection_for_select(User.all_except(task.users), :email, :email)

@@ -1,5 +1,6 @@
 = bootstrap_form_for(task) do |f|
   .modal-header
+    %button.close{ data: { dismiss: 'modal', type: 'button' } } &times;
     %h4.modal-title New task
   .modal-body
     = f.text_field :text
