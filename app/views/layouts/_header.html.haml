@@ -1,0 +1,42 @@
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{ aria: { expanded: false }, data: { toggle: 'collapse', target: '#navbar' }, type: 'button' }
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      = link_to 'TaskMan', root_path, class: 'navbar-brand brand'
+    #navbar.colapse.navbar-collapse
+      -#%ul.nav.navbar-nav
+      -#  %li
+      -#    = link_to 'Запити', root_url
+      -#  %li
+      -#    = link_to 'Новини', root_url
+      -#  %li
+      -#    = link_to 'Про Нас', root_url
+      %ul.nav.navbar-nav.navbar-right
+        - if true #user_signed_in?
+          %li
+            = link_to new_task_path do
+              %i.fa.fa-plus
+          %li.dropdown
+            %a.dropdown-toggle{ data: { toggle: 'dropdown' }, href: '#' }
+              %i.fa.fa-cog
+              = "kek"#current_user.name
+            %ul.dropdown-menu
+              %li
+                = link_to 'Dashboard', root_path
+              %li
+                = link_to 'Створити запит', root_path
+              %li
+                = link_to 'Додати новину', root_path
+              %li
+                = link_to 'Панель адміністрування', root_path
+              %li
+                = link_to 'Налаштування', root_path
+              %li
+                = link_to 'Вийти', root_path, method: 'delete'
+        - else
+          %li
+            = link_to 'Log In', root_path
