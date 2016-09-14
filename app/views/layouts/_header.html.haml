@@ -9,14 +9,14 @@
       = link_to 'TaskMan', root_path, class: 'navbar-brand brand'
     #navbar.colapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
-        - if true #user_signed_in?
+        - if user_signed_in?
           %li
             = link_to new_task_path do
               %i.fa.fa-plus
           %li.dropdown
             %a.dropdown-toggle{ data: { toggle: 'dropdown' }, href: '#' }
               %i.fa.fa-cog
-              = "kek"#current_user.name
+              = current_user.email
             %ul.dropdown-menu
               %li
                 = link_to 'Dashboard', root_path
@@ -29,7 +29,7 @@
               %li
                 = link_to 'Налаштування', root_path
               %li
-                = link_to 'Вийти', root_path, method: 'delete'
+                = link_to 'Вийти', destroy_user_session_path, method: 'delete'
         - else
           %li
-            = link_to 'Log In', root_path
+            = link_to 'Log In', new_user_session_path
