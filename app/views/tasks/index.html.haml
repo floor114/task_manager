@@ -1,7 +1,17 @@
-<h1>Tasks#index</h1>
-- @tasks.each do |task|
-  %p
-    = "#{task.text}"
-    = link_to 'Edit', edit_task_path(task)
-    = link_to 'Delete', task_path(task), method: :delete, data: { confirm: 'Are you sure?' }
-    = link_to 'Share', share_task_path(task), remote: true, method: :post
+.panel.panel-default
+  .panel-heading
+    Tasks
+    = link_to new_task_path, class: 'pull-right' do
+      %i.fa.fa-plus
+  / Table
+  %table#tasks.table
+    - @tasks.each do |task|
+      %tr
+        %td.col-md-10= "#{task.text}"
+        %td.col-md-1.text-right
+          = link_to edit_task_path(task) do
+            %i.fa.fa-pencil
+          = link_to task_path(task), method: :delete, data: { confirm: 'Are you sure?' } do
+            %i.fa.fa-trash
+          = link_to share_task_path(task), remote: true, method: :post do
+            %i.fa.fa-share
