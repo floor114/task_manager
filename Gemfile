@@ -30,6 +30,7 @@ gem 'figaro'
 ##  User system gems
 #############################
 gem 'devise'
+gem 'cancancan', '~> 1.10'
 
 group :development, :test do
   gem 'byebug', platform: :mri

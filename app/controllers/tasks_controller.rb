@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  load_and_authorize_resource except: [:create, :show, :index]
   before_action :authenticate_user!
   before_action :set_task, only: [:edit, :update, :destroy, :share]
   def index
