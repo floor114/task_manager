@@ -12,10 +12,8 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    if @task.save
-      current_user.users_tasks.create(task: @task)
-      respond_to :js
-    end
+    current_user.users_tasks.create(task: @task) if @task.save
+    respond_to :js
   end
 
   def edit

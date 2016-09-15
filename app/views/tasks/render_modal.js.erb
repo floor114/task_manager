@@ -1,1 +1,13 @@
 $("#tasks-modal .modal-content").html('<%= escape_javascript(render partial: "tasks/modals/#{@target}", locals: { task: @task }) %>');
+
+if($('#task_text').val() ==  "")
+  $('#submit').attr('disabled', true);
+
+$('#task_text').keyup(function(){
+  if($('#task_text').val() !=  "")
+    $('#submit').attr('disabled', false);
+  else
+    $('#submit').attr('disabled', true);
+});
+
+

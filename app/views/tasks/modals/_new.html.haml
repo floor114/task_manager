@@ -5,4 +5,4 @@
   .modal-body
     = f.text_field :text, autocomplete: 'off'
   .modal-footer
-    = f.submit 'Create', class: 'btn btn-info', data: { target: '#tasks-modal', toggle: :modal }
+    = f.submit 'Create', id: 'submit', class: 'btn btn-info', data: { target: '#tasks-modal', toggle: :modal }
