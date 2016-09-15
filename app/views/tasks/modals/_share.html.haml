@@ -5,4 +5,4 @@
   .modal-body
     = f.select :user_email, options_from_collection_for_select(User.all_except(task.users), :email, :email)
   .modal-footer
-    = f.submit 'Share', class: 'btn btn-default', data: { target: '#tasks-modal', toggle: :modal }
+    = f.submit 'Share', class: 'btn btn-info', data: { target: '#tasks-modal', toggle: :modal }

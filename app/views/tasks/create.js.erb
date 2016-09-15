@@ -1,1 +1,4 @@
+if ($(".tasks-empty").length > 0){
+  $(".tasks-empty").remove();
+}
 $("#tasks-table").append('<%= escape_javascript(render partial: 'tasks/task_row', locals: { task: @task }) %>');

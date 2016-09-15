@@ -23,15 +23,13 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path
-    else
-      render :edit
+      respond_to :js
     end
   end
 
   def destroy
     @task.destroy
-    redirect_to tasks_path
+    respond_to :js
   end
 
   def share

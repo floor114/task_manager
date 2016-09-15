@@ -1,11 +1,11 @@
-%tr
-  %td.col-md-10= "#{task.creator.email} - #{task.text}"
+%tr.task{ id: "task-#{task.id}"}
+  %td#task-text.col-md-10= "#{task.creator.email} - #{task.text}"
   %td.col-md-1.text-right
     - if can? :edit, task
-      = link_to edit_task_path(task) do
+      = link_to render_modal_tasks_path(id: task.id, target: 'edit'), data: { target: '#tasks-modal', toggle: :modal}, remote: true, method: :get do
         %i.fa.fa-pencil
     - if can? :destroy, task
-      = link_to task_path(task), method: :delete, data: { confirm: 'Are you sure?' } do
+      = link_to task_path(task), remote: true, method: :delete, data: { confirm: 'Are you sure?' } do
         %i.fa.fa-trash
     - if can?(:share, task) && !User.all_except(task.users).blank?
       = link_to render_modal_tasks_path(id: task.id, target: 'share'), data: { target: '#tasks-modal', toggle: :modal}, remote: true, method: :get do

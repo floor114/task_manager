@@ -1,2 +1,1 @@
-//alert('<%= @task.text %>');
 $("#tasks-modal .modal-content").html('<%= escape_javascript(render partial: "tasks/modals/#{@target}", locals: { task: @task }) %>');
