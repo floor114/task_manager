@@ -26,12 +26,13 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @ids = @task.users.ids
     @task.destroy
     respond_to :js
   end
 
   def share
-    @task.share(params[:user_email])
+    @task.share(params[:user])
     respond_to :js
   end
 

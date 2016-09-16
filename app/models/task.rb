@@ -7,7 +7,7 @@ class Task < ApplicationRecord
     users_tasks.where(user_type: 0).first.user
   end
 
-  def share(user_email)
-    users_tasks.create(user_email: user_email, user_type: 1)
+  def share(user_id)
+    users_tasks.create(user: User.find(user_id), user_type: 1)
   end
 end

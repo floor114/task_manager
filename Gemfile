@@ -25,6 +25,8 @@ gem 'bootstrap_form'
 #############################
 gem 'puma', '~> 3.0'
 gem 'figaro'
+gem 'private_pub'
+gem 'thin'
 
 #############################
 ##  User system gems
