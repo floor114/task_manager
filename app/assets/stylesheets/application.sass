@@ -1,7 +1,35 @@
-@import 'bootstrap-sprockets'
 @import 'bootstrap'
 @import 'font-awesome'
 @import 'rails_bootstrap_forms'
 
 body
-  padding-bottom: 70px
+  padding-bottom: 60px
+
+.navbar
+  margin-bottom: 20px
+
+.footer
+  margin-bottom: 0
+  p
+    margin: 0
+    vertical-align: middle
+
+.card
+  width: 32%
+  float: left
+  margin: 5px
+  .card-header
+    font-size: 0.9rem
+    .task-author
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+  .card-footer
+    .task-date
+      font-size: 0.8rem
+  .card-block
+    .card-text
+      word-break: break-all
+  .card-header, .card-footer
+    padding: 0.75rem 0.7rem
+

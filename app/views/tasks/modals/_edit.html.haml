@@ -3,6 +3,6 @@
     %button.close{ data: { dismiss: 'modal', type: 'button' } } &times;
     %h4.modal-title Edit task
   .modal-body
-    = f.text_field :text, autocomplete: 'off'
+    = f.text_field :text, autocomplete: 'off', hide_label: true
   .modal-footer
-    = f.submit 'Save', id: 'submit', class: 'btn btn-info', data: { target: '#tasks-modal', toggle: :modal }
+    = f.submit 'Save', id: 'submit', class: 'btn btn-primary', data: { target: '#tasks-modal', toggle: :modal }

@@ -2,8 +2,8 @@
   <% publish_to "/tasks/#{id}" do %>
     $("#task-<%= @task.id %>").fadeOut(function(){
       $(this).remove();
-      if ($("#tasks-table .task").length == 0){
-        $("#tasks-table").append("<h4 class='text-center tasks-empty'>There are no tasks.</h4>")
+      if ($("#tasks-table .card").length == 0){
+        $("#tasks-table").append("<h4 class='text-xs-center tasks-empty'>There are no tasks.</h4>")
       }
     });
   <% end %>

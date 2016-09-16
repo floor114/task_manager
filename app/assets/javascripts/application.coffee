@@ -1,4 +1,4 @@
 #= require jquery
-#= require bootstrap-sprockets
+#= require bootstrap
 #= require jquery_ujs
 #= require private_pub

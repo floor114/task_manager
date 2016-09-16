@@ -16,9 +16,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'hamlit'
-gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
 gem 'bootstrap_form'
+gem 'bootstrap', '~> 4.0.0.alpha4'
+
 
 #############################
 ##  Backend gems

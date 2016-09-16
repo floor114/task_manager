@@ -1,15 +1,10 @@
-.panel.panel-default
-  .panel-heading
-    My tasks
-    = link_to render_modal_tasks_path(target: 'new'), class: 'pull-right', data: { target: '#tasks-modal', toggle: :modal}, remote: true, method: :get do
-      %i.fa.fa-plus
-  %table#tasks-table.table
-    - if @tasks.blank?
-      %h4.text-center.tasks-empty There are no tasks.
-    -else
-      - @tasks.each do |task|
-        = render partial: 'tasks/task_row', locals: { task: task }
-  #tasks-modal.modal.fade
-    .modal-dialog
-      .modal-content
-        = subscribe_to "/tasks/#{current_user.id}"
+#tasks-modal.modal.fade
+  .modal-dialog
+    .modal-content
+#tasks-table
+  - if @tasks.blank?
+    %h4.text-xs-center.tasks-empty There are no tasks.
+  -else
+    - @tasks.each do |task|
+      = render partial: 'tasks/task_row', locals: { task: task }
+= subscribe_to "/tasks/#{current_user.id}"

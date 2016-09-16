@@ -28,6 +28,7 @@ class TasksController < ApplicationController
   def destroy
     @ids = @task.users.ids
     @task.destroy
+    @tasks = current_user.tasks
     respond_to :js
   end
 
