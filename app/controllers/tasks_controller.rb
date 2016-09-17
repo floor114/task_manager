@@ -2,6 +2,8 @@ class TasksController < ApplicationController
   load_and_authorize_resource except: [:index]
   before_action :authenticate_user!
   before_action :set_task, only: [:edit, :update, :destroy, :share]
+  protect_from_forgery except: :render_modal
+
   def index
     @tasks = current_user.tasks
   end
@@ -20,9 +22,8 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
-      respond_to :js
-    end
+    @task.update(task_params)
+    respond_to :js
   end
 
   def destroy

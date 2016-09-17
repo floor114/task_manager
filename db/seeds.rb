@@ -1,7 +1,7 @@
 # Create users
-['first', 'second', 'third'].each do |prefix|
+3.times do |prefix|
   User.create(
-      email: "#{prefix}@user.com",
+      email: "#{prefix.to_words}@user.com",
       password: '12345678',
       password_confirmation: '12345678',
       confirmed_at: DateTime.now
