@@ -6,7 +6,7 @@ class Ability
     if user
       can [:create, :render_modal], Task
 
-      can [:read, :edit, :update, :destroy], Task do |task|
+      can [:edit, :update, :destroy], Task do |task|
         task.users.include?(user)
       end
 

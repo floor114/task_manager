@@ -2,8 +2,11 @@ require 'rails_helper'
 
 describe TasksController do
   let(:user) { FactoryGirl.create(:user) }
+  let(:allowed_user) { FactoryGirl.create(:user) }
   let(:task_params) { FactoryGirl.attributes_for(:task, text: Faker::Hipster.sentence) }
   let(:task) { Task.create(task_params) }
+  let(:users_task) { FactoryGirl.create(:users_task, user_email: user.email, task_id: task.id) }
+
 
   before{ sign_in user }
 
@@ -26,8 +29,7 @@ describe TasksController do
   end
 
   describe '#update' do
-    let!(:users_task) { FactoryGirl.create(:users_task, user_email: user.email, task_id: task.id) }
-
+    before { users_task }
     context 'success' do
       before { @proc = -> { patch :update, format: :js, params: { id: task.id, task: task_params.merge(text: 'Text for tests.') } } }
 
@@ -47,7 +49,7 @@ describe TasksController do
   end
 
   describe '#destroy' do
-    let!(:users_task) { FactoryGirl.create(:users_task, user_email: user.email, task_id: task.id) }
+    before { users_task }
 
     context 'success' do
       before { @proc = -> { delete :destroy, format: :js, params: { id: task.id } } }
@@ -59,8 +61,10 @@ describe TasksController do
   end
 
   describe '#share' do
-    let(:allowed_user) { FactoryGirl.create(:user) }
-    let!(:users_task) { FactoryGirl.create(:users_task, user_email: user.email, task_id: task.id) }
+    before do
+      users_task
+      allowed_user
+    end
 
     context 'success' do
       before { @proc = -> { post :share, format: :js, params: { id: task.id, users: allowed_user.id.to_s } } }
