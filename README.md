@@ -1,24 +1,17 @@
-# README
+# taskMan - task manager 
+### Usage
+1. Clone project: <pre><code>git clone https://github.com/floor114/task_manager.git</code></pre>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+2. Rename <code>application.yml.example</code> to <code>application.yml</code>, enter gmail account for possibility to confirm user accounts via email.
 
-Things you may want to cover:
+3. Rename <code>database.yml.example</code> to <code>database.yml</code>, enter postgres username and password for setup database settings.
 
-* Ruby version
+4. Execute: <code>rake db:setup</code> for creating database, run migrations and seeds.
 
-* System dependencies
+5. There are three default users with same password (12345678):
+ * one@user.com
+ * two@user.com
+ * three@user.com
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+6. Before run rails server execute: <pre><code>rackup private_pub.ru -s thin -E production</code></pre>
+ 
