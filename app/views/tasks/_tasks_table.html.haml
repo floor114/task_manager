@@ -1,0 +1,7 @@
+- if tasks.blank?
+  %h4.text-xs-center.tasks-empty There are no tasks.
+-else
+  - tasks.each_with_index do |task, index|
+    - if index % 3 == 0
+      .clearfix
+    = render partial: 'tasks/task_card', locals: { task: task }

@@ -19,6 +19,7 @@ gem 'hamlit'
 gem 'font-awesome-rails'
 gem 'bootstrap_form'
 gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'selectize-rails'
 
 
 #############################
@@ -37,6 +38,10 @@ gem 'cancancan', '~> 1.10'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'faker'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'factory_girl_rails'
+  gem 'to_words'
 end
 
 group :development do
@@ -46,6 +51,12 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
   gem 'awesome_print'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'rails-controller-testing'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

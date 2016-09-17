@@ -1,7 +1,7 @@
 .card-header
   .row
     .col-md-10.task-author
-      = current_user == task.creator ? 'My task' : task.creator.email
+      = task.creator.email
     .col-md-2
       - if can? :destroy, task
         = link_to task_path(task), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'pull-right' do

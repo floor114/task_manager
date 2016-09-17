@@ -2,9 +2,5 @@
   .modal-dialog
     .modal-content
 #tasks-table
-  - if @tasks.blank?
-    %h4.text-xs-center.tasks-empty There are no tasks.
-  -else
-    - @tasks.each do |task|
-      = render partial: 'tasks/task_row', locals: { task: task }
+  = render partial: 'tasks/tasks_table', locals: { tasks: @tasks }
 = subscribe_to "/tasks/#{current_user.id}"

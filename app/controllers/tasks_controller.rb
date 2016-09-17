@@ -2,6 +2,8 @@ class TasksController < ApplicationController
   load_and_authorize_resource except: [:index]
   before_action :authenticate_user!
   before_action :set_task, only: [:edit, :update, :destroy, :share]
+  protect_from_forgery except: :render_modal
+
   def index
     @tasks = current_user.tasks
   end
@@ -20,26 +22,29 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
-      respond_to :js
-    end
+    @task.update(task_params)
+    respond_to :js
   end
 
   def destroy
     @ids = @task.users.ids
     @task.destroy
-    @tasks = current_user.tasks
     respond_to :js
   end
 
   def share
-    @task.share(params[:user])
+    @users = params[:users].split(',')
+    @users.each{ |user| @task.share(user) }
     respond_to :js
   end
 
   def render_modal
-    @task = params[:id].nil? ? Task.new : Task.find(params[:id])
-    @target = params[:target]
+    if params[:id].nil?
+      @task = Task.new
+    else
+      @task = Task.find(params[:id])
+      @users = User.all_except(@task.users).pluck(:id, :email)
+    end
     respond_to :js
   end
 
