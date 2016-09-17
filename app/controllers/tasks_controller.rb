@@ -33,13 +33,18 @@ class TasksController < ApplicationController
   end
 
   def share
-    @task.share(params[:user])
+    @users = params[:users].split(',')
+    @users.each{ |user| @task.share(user) }
     respond_to :js
   end
 
   def render_modal
-    @task = params[:id].nil? ? Task.new : Task.find(params[:id])
-    @target = params[:target]
+    if params[:id].nil?
+      @task = Task.new
+    else
+      @task = Task.find(params[:id])
+      @users = User.all_except(@task.users).pluck(:id, :email)
+    end
     respond_to :js
   end
 

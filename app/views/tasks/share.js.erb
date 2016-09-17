@@ -1,8 +1,10 @@
-<% publish_to "/tasks/#{params[:user]}" do %>
-  if ($(".tasks-empty").length > 0){
-    $(".tasks-empty").remove();
-  }
-  $("#tasks-table").append('<%= escape_javascript(render partial: 'tasks/task_row', locals: { task: @task }) %>');
+<% @users.each do |user| %>
+  <% publish_to "/tasks/#{user}" do %>
+    if ($(".tasks-empty").length > 0){
+      $(".tasks-empty").remove();
+    }
+    $("#tasks-table").append('<%= escape_javascript(render partial: 'tasks/task_row', locals: { task: @task }) %>');
+  <% end %>
 <% end %>
 $("#task-<%= @task.id %>").html('<%= escape_javascript(render partial: 'tasks/task', locals: { task: @task }) %>');
 

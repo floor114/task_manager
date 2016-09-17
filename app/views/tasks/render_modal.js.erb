@@ -1,13 +1,39 @@
-$("#tasks-modal .modal-content").html('<%= escape_javascript(render partial: "tasks/modals/#{@target}", locals: { task: @task }) %>');
+$("#tasks-modal .modal-content").html('<%= escape_javascript(render partial: "tasks/modals/#{params[:target]}", locals: { task: @task }) %>');
 
-if($('#task_text').val() ==  "")
-  $('#submit').attr('disabled', true);
+<% case params[:target] %>
+<% when 'edit', 'new' %>
+  var task_text = $('#task_text');
 
-$('#task_text').keyup(function(){
-  if($('#task_text').val() !=  "")
-    $('#submit').attr('disabled', false);
+  check_fill(task_text.val());
+  task_text.keyup(function(){
+    check_fill(task_text.val());
+  });
+<% when 'share' %>
+  var select = $('#users');
+  var options = [];
+
+  <% @users.each_with_index do |user, index| %>
+    options.push({ value: "<%= user[0] %>", text: "<%= user[1] %>"});
+  <% end %>
+
+  select.selectize({
+    options: options,
+    create: false
+  });
+
+  check_fill(select[0].selectize  .getValue());
+  select[0].selectize.on('change', function(){
+    check_fill(select[0].selectize  .getValue());
+  });
+<% end %>
+
+function check_fill(value) {
+  var submit = $('#submit');
+  if(value ==  "")
+    submit.attr('disabled', true);
   else
-    $('#submit').attr('disabled', true);
-});
+    submit.attr('disabled', false);
+};
+
 
 

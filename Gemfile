@@ -19,6 +19,7 @@ gem 'hamlit'
 gem 'font-awesome-rails'
 gem 'bootstrap_form'
 gem 'bootstrap', '~> 4.0.0.alpha4'
+gem 'selectize-rails'
 
 
 #############################
