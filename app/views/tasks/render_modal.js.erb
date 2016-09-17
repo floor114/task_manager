@@ -8,6 +8,7 @@ $("#tasks-modal .modal-content").html('<%= escape_javascript(render partial: "ta
   task_text.keyup(function(){
     check_fill(task_text.val());
   });
+
 <% when 'share' %>
   var select = $('#users');
   var options = [];
@@ -21,9 +22,9 @@ $("#tasks-modal .modal-content").html('<%= escape_javascript(render partial: "ta
     create: false
   });
 
-  check_fill(select[0].selectize  .getValue());
+  check_fill(select[0].selectize.getValue());
   select[0].selectize.on('change', function(){
-    check_fill(select[0].selectize  .getValue());
+    check_fill(select[0].selectize.getValue());
   });
 <% end %>
 
@@ -33,7 +34,7 @@ function check_fill(value) {
     submit.attr('disabled', true);
   else
     submit.attr('disabled', false);
-};
+}
 
 
 
