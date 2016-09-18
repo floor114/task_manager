@@ -4,11 +4,8 @@ var tasks_table = $("#tasks-table")
   <% publish_to "/tasks/#{id}" do %>
     $("#task-<%= @task.id %>").fadeOut(function(){
       $(this).remove();
-      tasks_table.html('<%= escape_javascript(render partial: 'tasks/tasks_table', locals: { tasks: User.find(id).tasks }) %>');
+      <% user = User.find(id) %>
+      tasks_table.html('<%= escape_javascript(render partial: 'tasks/tasks_table', locals: { tasks: user.tasks, user: user }) %>');
     });
   <% end %>
 <% end %>
-
-
-
-

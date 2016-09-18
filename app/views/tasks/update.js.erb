@@ -1,5 +1,5 @@
 <% @task.users.ids.each do |id| %>
   <% publish_to "/tasks/#{id}" do %>
-    $("#task-<%= @task.id %>").html('<%= escape_javascript(render partial: 'tasks/task', locals: { task: @task }) %>');
+    $("#task-<%= @task.id %>").html('<%= escape_javascript(render partial: 'tasks/task', locals: { task: @task, user: User.find(id) }) %>');
   <% end %>
 <% end %>
