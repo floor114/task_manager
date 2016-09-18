@@ -4,6 +4,6 @@
     %h4.modal-title Choose user
   .modal-body
     -#= f.select :user, options_from_collection_for_select(User.all_except(task.users), :id, :email), hide_label: true
-    = select_tag :users, '', class: 'selectized', multiple: 'multiple'
+    = text_field_tag :users, '', class: 'selectized', multiple: 'multiple'
   .modal-footer
     = f.submit 'Share', id: 'submit', class: 'btn btn-primary', data: { target: '#tasks-modal', toggle: :modal }

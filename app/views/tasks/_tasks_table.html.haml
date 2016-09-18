@@ -4,4 +4,4 @@
   - tasks.each_with_index do |task, index|
     - if index % 3 == 0
       .clearfix
-    = render partial: 'tasks/task_card', locals: { task: task }
+    = render partial: 'tasks/task_card', locals: { task: task, user: user }

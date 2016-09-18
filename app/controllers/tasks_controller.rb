@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   protect_from_forgery except: :render_modal
 
   def index
-    @tasks = current_user.tasks
+    @tasks = current_user.tasks.order(:updated_at)
   end
 
   def new

@@ -7,4 +7,4 @@ if (tasks_empty.length > 0)
 if (tasks_table.children("div").length % 4 == 0)
   tasks_table.append("<div class='clearfix'></div>");
 
-tasks_table.append('<%= escape_javascript(render partial: 'tasks/task_card', locals: { task: @task }) %>');
+tasks_table.append($('<%= escape_javascript(render partial: 'tasks/task_card', locals: { task: @task, user: current_user }) %>').fadeIn());
