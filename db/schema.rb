@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20160914155444) do
   end
 
   create_table "users_tasks", force: :cascade do |t|
-    t.string   "user_email"
+    t.integer  "user_id"
     t.integer  "task_id"
     t.integer  "user_type",  default: 0
     t.datetime "created_at",             null: false
