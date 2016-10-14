@@ -3,16 +3,16 @@
     .col-md-10.task-author
       = task.creator == user ? 'My task': task.creator.email
     .col-md-2
-      - if can? :destroy, task
+      - if user.can? :destroy, task
         = link_to task_path(task), remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'pull-right' do
           %i.fa.fa-remove
 .card-block
   %p.card-text= task.text
 .card-footer
-  - if can? :edit, task
+  - if user.can? :edit, task
     = link_to render_modal_tasks_path(id: task.id, target: 'edit'), data: { target: '#tasks-modal', toggle: :modal}, remote: true, method: :get do
       %i.fa.fa-pencil
-  - if can?(:share, task) && !User.all_except(task.users).blank?
+  - if user.can?(:share, task) && !User.all_except(task.users).blank?
     = link_to render_modal_tasks_path(id: task.id, target: 'share'), data: { target: '#tasks-modal', toggle: :modal}, remote: true, method: :get do
       %i.fa.fa-share
   .task-date.pull-right= "#{time_ago_in_words(task.updated_at)} ago"

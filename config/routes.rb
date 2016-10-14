@@ -9,4 +9,6 @@ Rails.application.routes.draw do
       get :render_modal
     end
   end
+
+  mount ActionCable.server => '/cable'
 end

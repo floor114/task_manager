@@ -3,4 +3,3 @@
     .modal-content
 #tasks-table
   = render partial: 'tasks/tasks_table', locals: { tasks: @tasks, user: current_user }
-= subscribe_to "/tasks/#{current_user.id}"

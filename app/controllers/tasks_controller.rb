@@ -23,13 +23,10 @@ class TasksController < ApplicationController
 
   def update
     @task.update(task_params)
-    respond_to :js
   end
 
   def destroy
-    @ids = @task.users.ids
     @task.destroy
-    respond_to :js
   end
 
   def share

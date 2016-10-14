@@ -5,4 +5,10 @@ class User < ApplicationRecord
   has_many :tasks, through: :users_tasks, dependent: :destroy
 
   scope :all_except, ->(user) { where.not(id: user) }
+
+  delegate :can?, :cannot?, to: :ability
+
+  def ability
+    @ability ||= Ability.new(self)
+  end
 end
