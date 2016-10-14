@@ -11,7 +11,4 @@
 5. There are three default users with same password (12345678):
  * zero@user.com
  * one@user.com
- * two@user.com
-
-6. Before run rails server execute next command  for live share tasks: <pre><code>rackup private_pub.ru -s thin -E production</code></pre>
- 
+ * two@user.com 
