@@ -27,6 +27,11 @@ gem 'selectize-rails'
 #############################
 gem 'puma', '~> 3.0'
 gem 'figaro'
+gem 'trailblazer', '~> 1.1.1'
+gem 'trailblazer-rails', '~> 0.3.2'
+gem 'cells-hamlit'
+gem 'cells-rails'
+
 
 #############################
 ##  User system gems
@@ -49,6 +54,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'better_errors'
   gem 'awesome_print'
+  gem 'pry'
 end
 
 group :test do

@@ -1,0 +1,14 @@
+/ = clearfix
+.card{ id: task_block_id}
+  .card-header
+    .row
+      .col-md-10.task-author
+        = title
+      .col-md-2
+        = delete_link
+  .card-block
+    %p.card-text= text
+  .card-footer
+    = edit_link
+    = share_link
+    .task-date.pull-right= create_date

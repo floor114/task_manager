@@ -5,7 +5,9 @@ class TasksController < ApplicationController
   protect_from_forgery except: :render_modal
 
   def index
-    @tasks = current_user.tasks.order(:updated_at)
+    process_params!(params)
+    run Task::Index
+    render_view :index
   end
 
   def new
@@ -52,5 +54,16 @@ class TasksController < ApplicationController
 
     def set_task
       @task = Task.find(params[:id])
+    end
+
+    def render_view(action, options = {})
+      render html:
+        concept("task/cell/#{action}", @model, render_options), layout: options.fetch(:layout, true)
+    end
+
+    def render_options
+      {
+        form: @form
+      }
     end
 end
